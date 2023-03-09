@@ -1,17 +1,19 @@
 import { useParams } from "react-router-dom"
 import useFetch from "./useFetch";  
 import './blogdeatailsstylesheet.css'
+import {useNavigate} from "react-router-dom";
 
 
 const Blogsdeatail= ()=>{
   //פונקציה השולפת את האיידיי מהקישור למעלה
     const {id} =useParams();
+    const navigate=useNavigate();
     const {data:name,errormessage,isloding}=useFetch('http://localhost:8000/names/' +id);
     const handler =()=>{
       fetch('http://localhost:8000/names/' +id ,{
         method: 'DELETE'
       }).then(()=>{
-       
+       navigate('/');
       })
     }
     return(

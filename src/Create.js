@@ -1,14 +1,15 @@
 import { useState } from "react";
 import './createstylesheet.css';
-// import {useHistory}   from 'react-router-dom'
-// import { Navigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
+
+
 
 
 const Create = () => {
     const [Sname,setname]=useState();
     const [Age,setage]=useState();
     const [Bestsong,setbestsong]=useState();
-    // const history =useHistory();
+    const navigate =useNavigate();
     const handler =(e)=>{
         e.preventDefault();
         const names = {Sname,Age,Bestsong}
@@ -19,8 +20,7 @@ const Create = () => {
         })
         .then(()=>{
             console.log('NEW SINGER ADDED');
-            // history.push('/');
-            // <Navigate to="/" replace={true} />
+            navigate('/');
         })
         
     }
